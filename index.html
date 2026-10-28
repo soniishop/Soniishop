@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soni Shop | سونی شاپ</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #fffdf8;
+      color: #344957;
+    }
+    header {
+      background: #dff3ff;
+      text-align: center;
+      padding: 28px 12px;
+    }
+    header h1 { margin: 0; font-size: 32px; color: #438db6; }
+    header p { margin-bottom: 0; }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 15px 8px;
+      background: white;
+    }
+    button, .order {
+      border: none;
+      border-radius: 22px;
+      padding: 10px 16px;
+      background: #c9eaff;
+      color: #31566b;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    button.active { background: #72bce8; color: white; }
+    .intro { text-align: center; padding: 20px 10px; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      padding: 12px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border: 1px solid #e7f2f7;
+      border-radius: 16px;
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 16px;
+      box-shadow: 0 3px 12px #d9eaf033;
+    }
+    .photo {
+      height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #edf8ff;
+      font-size: 48px;
+    }
+    .card h3 { font-size: 15px; padding: 0 5px; }
+    .price { color: #438db6; font-weight: bold; }
+    .order { display: inline-block; margin-top: 8px; }
+    footer {
+      margin-top: 25px;
+      padding: 25px 12px;
+      background: #dff3ff;
+      text-align: center;
+      line-height: 2;
+    }
+    footer a { color: #286f9a; }
+    @media (min-width: 650px) {
+      .products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .photo { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Soni Shop ♡</h1>
+    <p>اکسسوری‌های خاص برای سلیقه‌های خاص ✨</p>
+  </header>
+
+  <nav>
+    <button class="active" onclick="filterProducts('all',this)">همه محصولات</button>
+    <button onclick="filterProducts('necklace',this)">گردنبند</button>
+    <button onclick="filterProducts('bracelet',this)">دستبند</button>
+    <button onclick="filterProducts('ring',this)">انگشتر</button>
+    <button onclick="filterProducts('other',this)">سایر اکسسوری</button>
+  </nav>
+
+  <section class="intro">
+    <h2>به سونی شاپ خوش اومدی 💙</h2>
+    <p>محصول موردعلاقه‌ات رو انتخاب کن و برای سفارش پیام بده.</p>
+  </section>
+
+  <main class="products">
+    <article class="card" data-category="necklace">
+      <div class="photo">📿</div>
+      <h3>گردنبند فانتزی</h3>
+      <p class="price">برای قیمت پیام بده</p>
+      <a class="order" href="https://ig.me/m/shopsonii" target="_blank">سفارش محصول</a>
+    </article>
+
+    <article class="card" data-category="bracelet">
+      <div class="photo">💙</div>
+      <h3>دستبند خاص</h3>
+      <p class="price">برای قیمت پیام بده</p>
+      <a class="order" href="https://ig.me/m/shopsonii" target="_blank">سفارش محصول</a>
+    </article>
+
+    <article class="card" data-category="ring">
+      <div class="photo">💍</div>
+      <h3>انگشتر فانتزی</h3>
+      <p class="price">برای قیمت پیام بده</p>
+      <a class="order" href="https://ig.me/m/shopsonii" target="_blank">سفارش محصول</a>
+    </article>
+
+    <article class="card" data-category="other">
+      <div class="photo">🎀</div>
+      <h3>اکسسوری دخترونه</h3>
+      <p class="price">برای قیمت پیام بده</p>
+      <a class="order" href="https://ig.me/m/shopsonii" target="_blank">سفارش محصول</a>
+    </article>
+  </main>
+
+  <footer>
+    <h3>ارتباط با سونی شاپ 💌</h3>
+    <p>برای دیدن محصولات بیشتر و ثبت سفارش:</p>
+    <a href="https://instagram.com/shopsonii" target="_blank">اینستاگرام ما</a>
+    &nbsp; | &nbsp;
+    <a href="https://t.me/Soniishop" target="_blank">تلگرام ما</a>
+    <p>با عشق برای تو ♡</p>
+  </footer>
+
+  <script>
+    function filterProducts(category, button) {
+      document.querySelectorAll('.card').forEach(function(card) {
+        card.style.display =
+          category === 'all' || card.dataset.category === category
+            ? ''
+            : 'none';
+      });
+      document.querySelectorAll('nav button').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      button.classList.add('active');
+    }
+  </script>
+</body>
+</html>
